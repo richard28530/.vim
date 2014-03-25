@@ -97,18 +97,19 @@ endif
 syntax enable
 syntax on
 
-colorscheme evening
-"set background=dark
+colorscheme emacs
+set background=dark
 "hi clear
 "if exists("syntax_on")
 "    syntax reset
 "endif
 
 "set guifont=Consolas:h11:cANSI
-set guifont=Monaco:h10
+set guifont=Monospace\ Italic\ 11
 "set lines=30 columns=120
 set number
-set fileencodings=utf-8,cp936
+"set encoding=cp936
+set fileencodings=gbk,cp936,utf-8
 set nocp
 set cindent
 
@@ -155,6 +156,8 @@ let g:TagHighlightSettings['PathToPython'] = '/bin/python'
 "for cscope
 map <F2> "zyiw:exe ":cs find s ".@z.""<CR>
 map <F3> "zyiw:exe ":cs find c ".@z.""<CR>
+map <F4> "zyiw:exe ":cs find g arad_pp_".@z.""<CR>
+map <F7> :!cscope -RqvbU -I/media/code/rgosm-build/prj_ca-octeon-cm/images/header -I/media/code/rgosm-build/prj_ca-octeon-lc/images/header -I/media/15G_HD/sdk_bld/sdk/6.3.1/include<CR>
 
 "for buffers switch
 map <F12> :bnext<CR>
@@ -162,9 +165,6 @@ map <F11> :bprev<CR>
 
 "for split
 nmap <F5> :split<cr>
-
-"for TagHighlight
-nmap <F9> :UpdateTypesFile<cr>
 
 "tab instead 
 set tabstop=4
@@ -175,3 +175,16 @@ set expandtab
 set clipboard+=unnamed
 
 set nobackup
+set virtualedit=all
+"set cursorline              " 突出显示当前行
+set ruler                   " 打开状态栏标尺
+set autochdir               " 自动切换当前目录为当前文件所在的目录
+set ignorecase smartcase    " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
+set nowrapscan              " 禁止在搜索到文件两端时重新搜索
+set incsearch               " 输入搜索内容时就显示搜索结果
+set hlsearch                " 搜索时高亮显示被找到的文本
+set guioptions-=T           " 隐藏工具栏
+set guioptions-=m           " 隐藏菜单栏
+set smartindent             " 开启新行时使用智能自动缩进
+set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\                " 设置在状态行显示的信息
+
