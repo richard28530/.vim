@@ -2176,12 +2176,20 @@ function! s:Tlist_Parse_Tagline(tag_line)
 
     " Extract the tag name
     let tag_name = strpart(a:tag_line, 0, stridx(a:tag_line, "\t"))
+    let line_tmp =  strpart(a:tag_line, stridx(a:tag_line, "line:") + 5, strlen(a:tag_line))
+    "let line_number = strpart(line_tmp, 0, stridx(line_tmp, "\t"))
+    if (match(line_tmp, '\t') > 0)
+        let line_number = strpart(line_tmp, 0, match(line_tmp, '\t'))
+    else 
+        let line_number = line_tmp
+    endif
 
     " Extract the tag scope/prototype
     if g:Tlist_Display_Prototype
-        let ttxt = '    ' . s:Tlist_Get_Tag_Prototype(s:fidx, s:tidx)
+        "let ttxt = '    ' . s:Tlist_Get_Tag_Prototype(s:fidx, s:tidx)
+        let ttxt = ' [' . line_number . '] ' . s:Tlist_Get_Tag_Prototype(s:fidx, s:tidx)
     else
-        let ttxt = '    ' . tag_name
+        let ttxt = ' [' . line_number . '] ' . tag_name
 
         " Add the tag scope, if it is available and is configured. Tag
         " scope is the last field after the 'line:<num>\t' field
