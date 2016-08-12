@@ -9,14 +9,70 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+filetype off                  " required
+
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+
+" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'L9'
+
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+"Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" YCM
+Plugin 'Valloric/YouCompleteMe'
+
+" Ack
+Plugin 'mileszs/ack.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
 endif
-
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -105,7 +161,8 @@ colorscheme emacs
 "endif
 
 "set guifont=Consolas:h11:cANSI
-set guifont=Monospace\ Italic\ 11
+"set guifont=Monospace\ Italic\ 12
+set guifont=Consolas\ Italic:h16
 "set lines=30 columns=120
 set number
 "set encoding=cp936
@@ -117,6 +174,8 @@ set cindent
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Compact_Format=1
+let Tlist_Display_Prototype=0
+
 "for winmanager
 let g:winManagerWindowLayout='TagList'
 nmap wm :WMToggle<cr>
@@ -146,7 +205,7 @@ if ! exists('g:TagHighlightSettings')
 	let g:TagHighlightSettings = {}
 endif
 let g:TagHighlightSettings['TagFileName'] = 'tags'
-let g:TagHighlightSettings['CtagsExecutable'] = 'ctags'
+let g:TagHighlightSettings['CtagsExecutable'] = 'ctags -N'
 let g:TagHighlightSettings['ForcePythonVariant'] = 'if_pyth'
 let g:TagHighlightSettings['PathToPython'] = '/bin/python'
 
@@ -157,7 +216,8 @@ let g:TagHighlightSettings['PathToPython'] = '/bin/python'
 map <F2> "zyiw:exe ":cs find s ".@z.""<CR>
 map <F3> "zyiw:exe ":cs find c ".@z.""<CR>
 map <F4> "zyiw:exe ":cs find g arad_pp_".@z.""<CR>
-map <F7> :!cscope -RqvbU -I/home/richard/rgosm-build/prj_ca-octeon-cm/images/header -I/home/richard/rgosm-build/prj_ca-octeon-lc/images/header<CR>
+"map <F7> :!cscope -RqvbU -I/home/richard/rgosm-build/prj_ca-octeon-cm/images/header -I/home/richard/rgosm-build/prj_ca-octeon-lc/images/header<CR>
+map <F7> :!cscope -RqvbU<CR>
 
 "for buffers switch
 map <F12> :bnext<CR>
@@ -171,8 +231,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-"share clipboard with windows
+"share clipboard with Xwindow system
 set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 set nobackup
 set virtualedit=all
@@ -180,7 +241,8 @@ set virtualedit=all
 set ruler                   " 打开状态栏标尺
 "set autochdir               " 自动切换当前目录为当前文件所在的目录
 set ignorecase smartcase    " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
-set nowrapscan              " 禁止在搜索到文件两端时重新搜索
+set nowrap
+"set nowrapscan              " 禁止在搜索到文件两端时重新搜索
 set incsearch               " 输入搜索内容时就显示搜索结果
 set hlsearch                " 搜索时高亮显示被找到的文本
 set guioptions-=T           " 隐藏工具栏
@@ -202,7 +264,7 @@ let NERDCompactSexyComs=1   " 多行注释时样子更好看
 "-----------------------------------------------------------------
 " plugin - DoxygenToolkit.vim  由注释生成文档，并且能够快速生成函数标准注释
 "-----------------------------------------------------------------
-let g:DoxygenToolkit_authorName="chenhu@ruijie.com.cn"
+let g:DoxygenToolkit_authorName="chenhu@bmsoft.com.cn"
 let g:DoxygenToolkit_briefTag_funcName="yes"
 map <leader>da :DoxAuthor<CR>
 map <leader>df :Dox<CR>
