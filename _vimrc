@@ -35,7 +35,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
 
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
+" Plugin 'git://git.wincent.com/command-t.git'
 
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plugin 'file:///home/gmarik/path/to/plugin'
@@ -53,6 +53,9 @@ Plugin 'Valloric/YouCompleteMe'
 
 " Ack
 Plugin 'mileszs/ack.vim'
+
+" YANG
+Bundle 'nathanalderson/yang.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -155,10 +158,10 @@ syntax on
 
 colorscheme emacs
 "set background=dark
-"hi clear
-"if exists("syntax_on")
-"    syntax reset
-"endif
+hi clear
+if exists("syntax_on")
+    syntax reset
+endif
 
 "set guifont=Consolas:h11:cANSI
 "set guifont=Monospace\ Italic\ 12
@@ -178,7 +181,7 @@ let Tlist_Display_Prototype=0
 
 "for winmanager
 let g:winManagerWindowLayout='TagList'
-nmap wm :WMToggle<cr>
+nmap tm :WMToggle<cr>
 
 ":set cscopequickfix=s-,c-,d-,i-,t-,e-
 
@@ -271,3 +274,6 @@ map <leader>df :Dox<CR>
 map <leader>db :DoxBlock<CR>
 map <leader>dc a /*  */<LEFT><LEFT><LEFT>
 
+"if &diff                             " only for diff mode/vimdiff
+"      set diffopt=filler,context:1000000 " filler is default and inserts empty lines for sync
+"endif
