@@ -50,6 +50,12 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " YCM
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'Raimondi/delimitMate'
+Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+ 
+let g:airline_theme='papercolor'
 
 " Ack
 Plugin 'mileszs/ack.vim'
