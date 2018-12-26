@@ -52,8 +52,6 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
  
 let g:airline_theme='papercolor'
 
@@ -246,32 +244,32 @@ set clipboard+=unnamedplus
 
 set nobackup
 set virtualedit=all
-"set cursorline              " Í»³öÏÔÊ¾µ±Ç°ĞĞ
-set ruler                   " ´ò¿ª×´Ì¬À¸±ê³ß
-"set autochdir               " ×Ô¶¯ÇĞ»»µ±Ç°Ä¿Â¼Îªµ±Ç°ÎÄ¼şËùÔÚµÄÄ¿Â¼
-set ignorecase smartcase    " ËÑË÷Ê±ºöÂÔ´óĞ¡Ğ´£¬µ«ÔÚÓĞÒ»¸ö»òÒÔÉÏ´óĞ´×ÖÄ¸Ê±ÈÔ±£³Ö¶Ô´óĞ¡Ğ´Ãô¸Ğ
+"set cursorline              " çªå‡ºæ˜¾ç¤ºå½“å‰è¡Œ
+set ruler                   " æ‰“å¼€çŠ¶æ€æ æ ‡å°º
+"set autochdir               " è‡ªåŠ¨åˆ‡æ¢å½“å‰ç›®å½•ä¸ºå½“å‰æ–‡ä»¶æ‰€åœ¨çš„ç›®å½•
+set ignorecase smartcase    " æœç´¢æ—¶å¿½ç•¥å¤§å°å†™ï¼Œä½†åœ¨æœ‰ä¸€ä¸ªæˆ–ä»¥ä¸Šå¤§å†™å­—æ¯æ—¶ä»ä¿æŒå¯¹å¤§å°å†™æ•æ„Ÿ
 set nowrap
-"set nowrapscan              " ½ûÖ¹ÔÚËÑË÷µ½ÎÄ¼şÁ½¶ËÊ±ÖØĞÂËÑË÷
-set incsearch               " ÊäÈëËÑË÷ÄÚÈİÊ±¾ÍÏÔÊ¾ËÑË÷½á¹û
-set hlsearch                " ËÑË÷Ê±¸ßÁÁÏÔÊ¾±»ÕÒµ½µÄÎÄ±¾
-set guioptions-=T           " Òş²Ø¹¤¾ßÀ¸
-set guioptions-=m           " Òş²Ø²Ëµ¥À¸
-set smartindent             " ¿ªÆôĞÂĞĞÊ±Ê¹ÓÃÖÇÄÜ×Ô¶¯Ëõ½ø
-set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\                " ÉèÖÃÔÚ×´Ì¬ĞĞÏÔÊ¾µÄĞÅÏ¢
+"set nowrapscan              " ç¦æ­¢åœ¨æœç´¢åˆ°æ–‡ä»¶ä¸¤ç«¯æ—¶é‡æ–°æœç´¢
+set incsearch               " è¾“å…¥æœç´¢å†…å®¹æ—¶å°±æ˜¾ç¤ºæœç´¢ç»“æœ
+set hlsearch                " æœç´¢æ—¶é«˜äº®æ˜¾ç¤ºè¢«æ‰¾åˆ°çš„æ–‡æœ¬
+set guioptions-=T           " éšè—å·¥å…·æ 
+set guioptions-=m           " éšè—èœå•æ 
+set smartindent             " å¼€å¯æ–°è¡Œæ—¶ä½¿ç”¨æ™ºèƒ½è‡ªåŠ¨ç¼©è¿›
+set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\                " è®¾ç½®åœ¨çŠ¶æ€è¡Œæ˜¾ç¤ºçš„ä¿¡æ¯
 
 "-----------------------------------------------------------------
-" plugin - NERD_commenter.vim   ×¢ÊÍ´úÂëÓÃµÄ£¬
-" [count],cc ¹â±êÒÔÏÂcountĞĞÖğĞĞÌí¼Ó×¢ÊÍ(7,cc)
-" [count],cu ¹â±êÒÔÏÂcountĞĞÖğĞĞÈ¡Ïû×¢ÊÍ(7,cu)
-" [count],cm ¹â±êÒÔÏÂcountĞĞ³¢ÊÔÌí¼Ó¿é×¢ÊÍ(7,cm)
-" ,cA ÔÚĞĞÎ²²åÈë /* */,²¢ÇÒ½øÈë²åÈëÄ£Ê½¡£ Õâ¸öÃüÁî·½±ãĞ´×¢ÊÍ¡£
-" ×¢£ºcount²ÎÊı¿ÉÑ¡£¬ÎŞÔòÄ¬ÈÏÎªÑ¡ÖĞĞĞ»òµ±Ç°ĞĞ
+" plugin - NERD_commenter.vim   æ³¨é‡Šä»£ç ç”¨çš„ï¼Œ
+" [count],cc å…‰æ ‡ä»¥ä¸‹countè¡Œé€è¡Œæ·»åŠ æ³¨é‡Š(7,cc)
+" [count],cu å…‰æ ‡ä»¥ä¸‹countè¡Œé€è¡Œå–æ¶ˆæ³¨é‡Š(7,cu)
+" [count],cm å…‰æ ‡ä»¥ä¸‹countè¡Œå°è¯•æ·»åŠ å—æ³¨é‡Š(7,cm)
+" ,cA åœ¨è¡Œå°¾æ’å…¥ /* */,å¹¶ä¸”è¿›å…¥æ’å…¥æ¨¡å¼ã€‚ è¿™ä¸ªå‘½ä»¤æ–¹ä¾¿å†™æ³¨é‡Šã€‚
+" æ³¨ï¼šcountå‚æ•°å¯é€‰ï¼Œæ— åˆ™é»˜è®¤ä¸ºé€‰ä¸­è¡Œæˆ–å½“å‰è¡Œ
 "-----------------------------------------------------------------
-let NERDSpaceDelims=1       " ÈÃ×¢ÊÍ·ûÓëÓï¾äÖ®¼äÁôÒ»¸ö¿Õ¸ñ
-let NERDCompactSexyComs=1   " ¶àĞĞ×¢ÊÍÊ±Ñù×Ó¸üºÃ¿´
+let NERDSpaceDelims=1       " è®©æ³¨é‡Šç¬¦ä¸è¯­å¥ä¹‹é—´ç•™ä¸€ä¸ªç©ºæ ¼
+let NERDCompactSexyComs=1   " å¤šè¡Œæ³¨é‡Šæ—¶æ ·å­æ›´å¥½çœ‹
 
 "-----------------------------------------------------------------
-" plugin - DoxygenToolkit.vim  ÓÉ×¢ÊÍÉú³ÉÎÄµµ£¬²¢ÇÒÄÜ¹»¿ìËÙÉú³Éº¯Êı±ê×¼×¢ÊÍ
+" plugin - DoxygenToolkit.vim  ç”±æ³¨é‡Šç”Ÿæˆæ–‡æ¡£ï¼Œå¹¶ä¸”èƒ½å¤Ÿå¿«é€Ÿç”Ÿæˆå‡½æ•°æ ‡å‡†æ³¨é‡Š
 "-----------------------------------------------------------------
 let g:DoxygenToolkit_authorName="chenhu@bmsoft.com.cn"
 let g:DoxygenToolkit_briefTag_funcName="yes"
